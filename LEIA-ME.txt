@@ -1,0 +1,43 @@
+NOSSO CANTINHO ♡
+===============
+
+ARQUIVOS
+- index.html  -> a página (abertura, cartinha e player)
+- style.css   -> o visual rosa, delicado
+- app.js      -> toda a lógica: botões, animações, player e corações
+- musica.mp3  -> (opcional) coloque aqui a música de vocês com esse nome
+
+COMO ABRIR
+Opção fácil: abra o index.html com duplo clique.
+Opção melhor: no VS Code, instale a extensão "Live Server",
+clique com o botão direito no index.html e escolha "Open with Live Server".
+
+COMO TROCAR A MÚSICA
+1) Jeito mais simples: clique em "Escolher música" no player e escolha
+   um arquivo de áudio do computador ou do celular.
+2) Jeito fixo: salve o arquivo como musica.mp3 na mesma pasta do index.html.
+   Ele carrega sozinho.
+
+COMO TROCAR O NOME DA MÚSICA E DO ARTISTA
+No index.html, procure por:
+  <strong id="pMusica">Nossa música</strong>
+  <small id="pArtista">coloque o nome aqui</small>
+e troque os textos.
+
+COMO TROCAR A CAPINHA
+No index.html, dentro de <div class="capa" id="capa">, troque o ♡ por:
+  <img src="capa.jpg" alt="">
+e coloque um arquivo capa.jpg na pasta.
+
+COMO TROCAR A CARTA
+No index.html, dentro de <div class="cartinha-corpo">, edite os parágrafos.
+
+MUDAR AS CORES
+No começo do style.css existe uma lista de cores. Troque ali e o site
+inteiro acompanha.
+
+OBSERVAÇÃO
+O cantinho compartilhado (cartinhas das duas, mural de músicas, histórico e
+área privada com senha) precisa de um servidor com banco de dados.
+Isso não roda só com HTML/CSS/JS no navegador. Me chame quando quiser
+montar essa parte.

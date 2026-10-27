@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Nosso Cantinho — um espaço romântico e delicado feito com carinho.">
+<meta name="referrer" content="no-referrer">
+<title>Nosso Cantinho ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<div id="coracoes" class="coracoes" aria-hidden="true"></div>
+
+<!-- ============ ABERTURA ============ -->
+<section id="abertura" class="abertura" aria-live="polite">
+  <div class="ursinhos">🧸 💗 🧸</div>
+  <button id="btnSurpresa" class="btn">Surpresa ♡</button>
+
+  <div id="fase1" class="fase">
+    <p class="tag">NOSSO CANTINHO</p>
+    <h1 class="titulo-cursivo">Para minha mamãe ♡</h1>
+    <p class="frase">Preparei uma coisinha especial para você...</p>
+    <p class="dica">clique em continuar</p>
+    <button id="btnContinuar" class="btn btn-suave">Continuar ♡</button>
+  </div>
+</section>
+
+<!-- ============ CANTINHO ============ -->
+<main id="cantinho" class="cantinho" hidden>
+  <header class="topo">
+    <p class="tag">NOSSO CANTINHO ♡</p>
+    <h1 class="titulo-cursivo">Para minha mamãe ♡</h1>
+  </header>
+
+  <!-- Cartinha -->
+  <section class="cartinha" id="cartinha">
+    <div class="cartinha-laco">🎀</div>
+    <h2 class="cartinha-titulo">Uma cartinha para você</h2>
+    <div class="cartinha-corpo">
+      <p>Minha mamãe,</p>
+      <p>criei este cantinho só para nós duas. Aqui a gente pode guardar palavras bonitas, músicas que lembram a gente e tudo o que ainda vamos viver juntas.</p>
+      <p>Obrigada por existir do jeitinho que você é. ♡</p>
+      <p class="assinatura">com todo o meu carinho</p>
+    </div>
+  </section>
+
+  <!-- Player -->
+  <section class="player" id="player">
+    <div class="capa" id="capa" aria-hidden="true">
+      <span>♡</span>
+    </div>
+    <div class="player-info">
+      <div class="player-textos">
+        <strong id="pMusica">Nossa música</strong>
+        <small id="pArtista">coloque o nome aqui</small>
+      </div>
+      <div class="controles">
+        <button id="pPlay" class="botao-redondo" aria-label="Reproduzir ou pausar">▶</button>
+        <div class="progresso" id="progresso" role="slider" aria-label="Progresso da música" tabindex="0">
+          <div class="barra" id="barra"></div>
+        </div>
+        <span id="pTemp" class="tempo">0:00</span>
+        <span id="pDur" class="tempo">0:00</span>
+      </div>
+    </div>
+    <input id="arquivo" type="file" accept="audio/*" hidden>
+    <button id="btnArquivo" class="btn btn-suave pequeno">Escolher música</button>
+    <audio id="audio" preload="metadata"></audio>
+    <small class="aviso" id="aviso">Toque em "Escolher música" e selecione um arquivo de áudio do seu celular ou computador.</small>
+  </section>
+
+  <p class="pedido">
+    Me diga o <strong>nome da música</strong> e do <strong>artista</strong> (ou me mande o arquivo) que eu ajusto o player e a capinha. ♡
+  </p>
+</main>
+
+</body>
+</html>

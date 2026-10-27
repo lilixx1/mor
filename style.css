@@ -1,0 +1,307 @@
+/* ===== Paleta do nosso cantinho ===== */
+:root {
+  --rosa-quase-branco: #FFF5F8;
+  --rosa-bebe: #F8DCE7;
+  --rosa-flor: #E9A8C0;
+  --rosa-antigo: #B96B89;
+  --branco-rosado: #FFFDFE;
+  --rosa-apoio: #E8B7C9;
+  --sombra: 0 10px 30px rgba(185, 107, 137, .18);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Quicksand", "Segoe UI", sans-serif;
+  color: var(--rosa-antigo);
+  background: linear-gradient(180deg, var(--rosa-quase-branco) 0%, var(--rosa-bebe) 100%);
+  overflow-x: hidden;
+}
+
+.titulo-cursivo {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(34px, 7vw, 60px);
+  font-weight: 700;
+  margin: 0;
+  color: var(--rosa-antigo);
+}
+
+.tag {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .3em;
+  color: var(--rosa-flor);
+  font-weight: 600;
+}
+
+/* ===== Corações flutuando ===== */
+.coracoes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.coracoes span {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  color: var(--rosa-apoio);
+  opacity: 0;
+  animation: subir linear forwards;
+}
+@keyframes subir {
+  0%   { transform: translateY(0) scale(.8); opacity: 0; }
+  15%  { opacity: .75; }
+  100% { transform: translateY(-110vh) scale(1.1); opacity: 0; }
+}
+
+/* ===== Abertura ===== */
+.abertura {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px;
+  text-align: center;
+}
+
+.ursinhos {
+  font-size: clamp(48px, 12vw, 76px);
+  letter-spacing: .1em;
+  animation: balancar 3.4s ease-in-out infinite;
+}
+@keyframes balancar {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* ===== Botão ===== */
+.btn {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--branco-rosado);
+  background: var(--rosa-flor);
+  border: none;
+  border-radius: 999px;
+  padding: 15px 40px;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: transform .25s ease, background .25s ease;
+}
+.btn:hover, .btn:focus-visible { background: var(--rosa-antigo); transform: translateY(-3px); }
+.btn:active { transform: translateY(0) scale(.98); }
+
+.btn-suave {
+  background: var(--branco-rosado);
+  color: var(--rosa-antigo);
+  box-shadow: 0 6px 18px rgba(185, 107, 137, .16);
+  border: 2px solid var(--rosa-flor);
+}
+.btn-suave:hover, .btn-suave:focus-visible { background: var(--rosa-flor); color: var(--branco-rosado); }
+
+.pequeno { font-size: 14px; padding: 10px 22px; }
+
+/* ===== Fases da abertura ===== */
+.fase {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.fase.on { display: flex; }
+.fase > * { opacity: 0; transform: translateY(18px); }
+.fase.revelar > * { animation: entrar .9s ease forwards; }
+.fase.revelar > *:nth-child(2) { animation-delay: .35s; }
+.fase.revelar > *:nth-child(3) { animation-delay: .8s; }
+.fase.revelar > *:nth-child(4) { animation-delay: 1.5s; }
+.fase.revelar > *:nth-child(5) { animation-delay: 1.9s; }
+@keyframes entrar {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.frase {
+  font-size: clamp(16px, 3.2vw, 21px);
+  margin: 0;
+  color: var(--rosa-antigo);
+}
+.dica {
+  margin: 0;
+  font-size: 13px;
+  color: var(--rosa-apoio);
+}
+
+/* ===== Cantinho (cartinha + player) ===== */
+.cantinho {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.cantinho[hidden] { display: none; }
+
+.topo { text-align: center; }
+
+.cartinha {
+  background: var(--branco-rosado);
+  border: 2px solid var(--rosa-bebe);
+  border-radius: 26px;
+  padding: 34px 28px 30px;
+  box-shadow: var(--sombra);
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px) scale(.96);
+}
+.cartinha.laco { animation: abrirCartinha 1.1s cubic-bezier(.22,1,.36,1) forwards; }
+@keyframes abrirCartinha {
+  70%  { opacity: 1; transform: translateY(-6px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cartinha-laco {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 34px;
+  filter: drop-shadow(0 4px 8px rgba(185,107,137,.3));
+}
+
+.cartinha-titulo {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(24px, 5vw, 34px);
+  margin: 6px 0 18px;
+  text-align: center;
+}
+
+.cartinha-corpo p {
+  line-height: 1.8;
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+.assinatura {
+  font-family: "Dancing Script", cursive;
+  font-size: 22px;
+  text-align: right;
+  margin-top: 22px !important;
+}
+
+/* ===== Player estilo mini Spotify ===== */
+.player {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--branco-rosado);
+  border: 2px solid var(--rosa-bebe);
+  border-radius: 22px;
+  padding: 16px 18px;
+  box-shadow: var(--sombra);
+  opacity: 0;
+  transform: translateY(30px);
+}
+.player.on { animation: entrarPlayer 1.1s ease forwards; }
+@keyframes entrarPlayer {
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.capa {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  color: var(--branco-rosado);
+  background: linear-gradient(135deg, var(--rosa-flor), var(--rosa-antigo));
+  box-shadow: 0 6px 16px rgba(185,107,137,.3);
+  background-size: cover;
+  background-position: center;
+}
+
+.player-info { flex: 1 1 260px; min-width: 220px; }
+.player-textos { display: flex; flex-direction: column; }
+.player-textos strong { font-size: 16px; }
+.player-textos small { color: var(--rosa-flor); }
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botao-redondo {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--branco-rosado);
+  background: var(--rosa-flor);
+  box-shadow: 0 5px 14px rgba(185,107,137,.3);
+  transition: background .2s, transform .2s;
+}
+.botao-redondo:hover { background: var(--rosa-antigo); transform: scale(1.06); }
+
+.progresso {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--rosa-bebe);
+  cursor: pointer;
+  overflow: hidden;
+}
+.barra {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--rosa-flor), var(--rosa-antigo));
+  transition: width .15s linear;
+}
+.tempo { font-size: 12px; color: var(--rosa-flor); min-width: 38px; }
+
+.aviso { flex: 1 1 100%; color: var(--rosa-apoio); font-size: 12px; }
+
+.pedido {
+  text-align: center;
+  font-size: 15px;
+  color: var(--rosa-antigo);
+  background: rgba(255, 253, 254, .7);
+  border: 2px dashed var(--rosa-apoio);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 0;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 560px) {
+  .cartinha { padding: 30px 20px 24px; border-radius: 20px; }
+  .player { justify-content: center; text-align: center; }
+  .player-info { flex-basis: 100%; }
+  .player-textos { align-items: center; }
+  .controles { justify-content: center; }
+  .tempo { min-width: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  .coracoes { display: none; }
+  .fase > *, .cartinha, .player { opacity: 1; transform: none; }
+}
